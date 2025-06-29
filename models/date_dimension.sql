@@ -7,7 +7,7 @@ case when dayname(to_timestamp(started_at)) in ('Sat','Sun')then 'Weekend'
 else 'BusinessDay'end as Day_type,
 {{get_season('started_at')}} as STATION_OF_YEAR
 from
-{{ source('demo', 'bike') }}
+{{ ref('stage_bike') }}
 where started_at !='started_at'
 )
 

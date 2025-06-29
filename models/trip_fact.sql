@@ -9,7 +9,7 @@ end_station_id,
 member_csual as member_casual,
 timestampdiff(second,to_timestamp(started_at),to_timestamp(ended_at))as trip_duration_seconds
 
-from {{ source('demo', 'bike') }}
+from {{ ref('stage_bike') }}
 where RIDE_ID!='ride_id'
 
 )
